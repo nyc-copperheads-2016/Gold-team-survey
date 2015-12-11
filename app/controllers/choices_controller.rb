@@ -3,7 +3,7 @@ get '/choices/new' do
 end
 
 post '/choices' do
-  new_choices = Question.new(question: params[:question], survey_id: params[:survey_id])
+  new_choices = Choice.new(question: params[:question], survey_id: params[:survey_id])
   if new_choices.save
     redirect '/'
   else
