@@ -3,4 +3,12 @@
       <a href="/users/<%=current_user.id%>/posts">My surveys</a>
       <br>
       <a href='/surveys/new'>Create survey</a>
+      <ul id= 'my-surveys'>
+      <li>
+         <% @new_surveys.each do |survey| %>
+      <li class= 'surveys'>
+          <a href="<%= "surveys/#{survey.id}" %>"><%=survey.name%></a>
+      </li>
+    </li>
+        <% end %>
 </div>
