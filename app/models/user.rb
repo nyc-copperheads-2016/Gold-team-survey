@@ -1,10 +1,10 @@
 class User < ActiveRecord::Base
+  include BCrypt
   has_many :rounds
   has_many :surveys
-
-  include BCrypt
-
-  # need to add validations
+  validates :username, uniqueness:true
+  validates :username, presence:true
+  validates :password, presence:true
 
   def password
     @password ||= Password.new(password_hash)

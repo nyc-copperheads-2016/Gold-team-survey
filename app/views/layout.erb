@@ -18,8 +18,29 @@
   <title></title>
 </head>
 <body>
-<div id="content">
+  <% if logged_in? %>
+      <span class='welcome'>Welcome <%= current_user.username %></span>
+      <form method='post' action='/sessions'>
+      <input type='hidden' name='_method' value='DELETE' />
+      <input type='submit' value='Logout' />
+      </form>
+      <a href='/surveys'>home</a>
+  <% else %>
+      <a href='/users/new'>New User</a>
+      <a href="/sessions/new">Login</a>
+  <% end %>
+  <% if defined?(errors)%>
+     <ul>
+      <% errors.each do |error| %>
+        <li><%=error%></li>
+     </ul>
+     <%end%>
+  <%end%>
+  <% if defined?params[:errors]%>
+     <ul>
+        <li><%=params[:errors]%></li>
+     </ul>
+  <%end%>
   <%= yield %>
-</div>
 </body>
 </html>
