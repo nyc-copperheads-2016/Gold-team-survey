@@ -7,7 +7,7 @@
 
          <% @new_surveys.each do |survey| %>
       <li class= 'surveys'>
-          <a href="<%= "surveys/#{survey.id}" %>"><%=survey.name%></a>
+          <a href="<%= "rounds/new/survey/#{survey.id}" %>"><%=survey.name%></a>
       </li>
 
         <% end %>
