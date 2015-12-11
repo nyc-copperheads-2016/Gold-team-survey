@@ -1,3 +1,5 @@
 class Survey < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :round
+  has_many :questions
+  belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
 end

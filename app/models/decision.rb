@@ -1,3 +1,5 @@
 class Decision < ActiveRecord::Base
-  # Remember to create a migration!
+  belongs_to :round
+  has_many :choices
+  has_many :questions, through: :choices
 end
