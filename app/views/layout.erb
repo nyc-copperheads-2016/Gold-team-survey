@@ -36,7 +36,7 @@
      </ul>
      <%end%>
   <%end%>
-  <% if defined?params[:errors]%>
+  <% if !params[:errors].nil?%>
      <ul>
         <li><%=params[:errors]%></li>
      </ul>
