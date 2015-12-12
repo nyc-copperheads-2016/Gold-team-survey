@@ -10,3 +10,8 @@ post '/questions' do
     erb :'questions/new'
   end
 end
+
+get '/rounds/:round_id/questions/:id' do
+  question = Question.find(params[:id])
+  erb :'questions/show', locals: { round_id: params[:round_id], question: question }
+end
