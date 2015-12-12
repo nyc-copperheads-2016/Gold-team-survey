@@ -1,14 +1,18 @@
 <div class="container">
   <h1>Survey Machine</h1>
-      <a href="/users/<%=current_user.id%>/surveys">My surveys</a>
-      <br>
-      <a href='/surveys/new'>Create survey</a>
-      <ul id='my-surveys'>
+  <a href="/users/<%=current_user.id%>/surveys">My surveys</a>
+  <a href='/surveys/new'>Create survey</a>
 
-         <% @new_surveys.each do |survey| %>
-      <li class= 'surveys'>
-          <a href="<%= "survey/#{survey.id}/rounds/new" %>"><%=survey.name%></a>
-      </li>
-
-        <% end %>
+  <ul id='my-surveys'>  
+    <% @new_surveys.each do |survey| %>
+    <li class='surveys'>
+      <%=survey.name%> by <%=survey.creator.username%>
+      <form method="post" action="/rounds/new">
+        <input type="hidden" value="<%= survey.id %>">
+        <input type="submit" value="Take the Survey">
+      </form>
+      
+    </li>
+    
+    <% end %>
 </div>
