@@ -8,7 +8,7 @@ get '/surveys/new' do
 end
 
 post '/surveys' do
-  new_survey = Survey.new(name: params[:name], creator: current_user)
+  new_survey = current_user.surveys.new(name: params[:name], creator: current_user)
   if new_survey.save
     redirect '/questions/new'
   else
