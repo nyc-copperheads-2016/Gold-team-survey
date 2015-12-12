@@ -1,7 +1,7 @@
-<div class="container">
+<div class="question-container">
   <h1>Survey Machine</h1>
     <h2><%=question.question+"?"%>
-        <form action=<%="/rounds/#{round_id}/decisions"%> method='post' />
+        <form class="game-form" action=<%="/rounds/#{round_id}/decisions"%> method='post' />
         <% question.choices.each do |c| %>
           <input type="radio" name="answer" value="a"><%= c.a %>
           <input type="radio" name="answer" value="b"/><%= c.b %>

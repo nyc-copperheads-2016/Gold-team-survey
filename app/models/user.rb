@@ -7,8 +7,7 @@ class User < ActiveRecord::Base
   validates :username, presence:true
   validates :password, presence:true
 
-  validates :password, length: { minimum: 6}
-  validates :password_confirmation, length: { minimum: 6 }
+  validates :password, length: { minimum: 6 }
   validates_confirmation_of :password, :confirm => :password_confirmation
 
   def password_confirmation_matches
