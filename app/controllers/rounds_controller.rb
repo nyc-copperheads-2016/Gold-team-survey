@@ -1,9 +1,6 @@
 post '/rounds/new' do
-  binding.pry
-  current_survey = Survey.find_by(id: params[:id])
+  current_survey = Survey.find_by(id: params[:survey_id])
   current_round = current_survey.rounds.create(user_id: current_user.id)
-  erb :'/rounds/new', locals: { round: current_round, survey: current_survey }
-end
-
-get 'rounds/:id/show' do
+  new_q_id = current_round.get_unanswered_q.first.id
+  redirect "/rounds/#{current_round.id}/questions/#{new_q_id}"
 end

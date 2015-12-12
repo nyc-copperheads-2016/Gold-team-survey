@@ -9,11 +9,12 @@
     <li class='surveys'>
       <%=survey.name%> by <%=survey.creator.username%>
       <form method="post" action="/rounds/new">
-        <input type="hidden" value="<%= survey.id %>">
+        <input type="hidden" name="survey_id" value="<%= survey.id %>">
         <input type="submit" value="Take the Survey">
       </form>
 
     </li>
+
   </ul>
 </div>
 
