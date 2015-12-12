@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>Survey Machine</h1>
+      <a href="/users/<%=current_user.id%>/surveys">My surveys</a>
+      <br>
+      <a href='/surveys/new'>Create survey</a>
+      <ul id='my-surveys'>
+
+         <% @new_surveys.each do |survey| %>
+      <li class= 'surveys'>
+          <a href="<%= "survey/#{survey.id}/rounds/new" %>"><%=survey.name%></a>
+      </li>
+
+        <% end %>
+</div>
