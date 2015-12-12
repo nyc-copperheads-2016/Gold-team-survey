@@ -3,7 +3,7 @@ $(document).ready(function() {
       e.preventDefault();
       $.ajax({
         method: 'GET'
-        url: "/questions"
+        url: "/questions/new"
       }).done(function(response){
         $('#new_question').append(response)
       }).fail(function(response){
