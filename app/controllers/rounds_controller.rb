@@ -1,4 +1,7 @@
-post '/rounds/:id' do
+get '/survey/:id/rounds/new' do
+  current_survey = Survey.find_by(id: params[:id])
+  current_round = current_survey.rounds.create(user_id: current_user.id)
+  erb :'/rounds/new', locals: { round: current_round, survey: current_survey }
 end
 
 get 'rounds/:id/show' do
