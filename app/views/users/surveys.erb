@@ -16,4 +16,17 @@
       </div>
     <% end %>
     <% end %>
+    <h2> Surveys you took </h2>
+    <% creator.surveys.each do |survey| %>
+      <%survey.questions.each do |question|%>
+        <%question.rounds.each do |round|%>
+          <%round.decisions.each do |decision| %>
+            <h3>Survey: <%=decision.question.survey.name%> </h3>
+
+              <p>You answered <%=decision.decision%> to this question: <%= decision.question.question %></p>
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+
 </div>
