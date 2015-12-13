@@ -1,5 +1,5 @@
 get '/users/new' do
-  erb :'/user/new'
+  erb :'/users/new'
 end
 
 post '/users' do
@@ -7,11 +7,19 @@ post '/users' do
   if new_user.save
     redirect '/'
   else
-    erb :'/user/new', locals: { errors: new_user.errors.full_messages }
+    erb :'/users/new', locals: { errors: new_user.errors.full_messages }
   end
 end
 
-get '/users/:id' do
-  @user = User.find_by(id: session[:user_id])
-  erb :'/user/show_user'
+get '/users/:id/surveys' do
+  current_user = User.find(session[:user_id])
+  erb :'/users/surveys', locals: { creator: current_user }
 end
+
+get '/users/:id' do
+  current_user = User.find(session[:user_id])
+  erb :'/users/show', locals: { user: current_user }
+end
+
+
+
