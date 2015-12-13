@@ -3,4 +3,6 @@ class Question < ActiveRecord::Base
   has_many :choices
   has_many :decisions
   has_many :rounds, through: :decisions
+
+
 end
