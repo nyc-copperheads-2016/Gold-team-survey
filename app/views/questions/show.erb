@@ -1,16 +1,6 @@
 <div class="question-container">
 
   <div class="form-container">
-    <h2><%= question.question %> ?</h2>
-    <% question.choices.each do |c| %>
-    <form id="game-form" action=<%="/rounds/#{round_id}/decisions"%> method='post' />
-      <input type="radio" name="answer" value="a"><%= c.a %>
-      <input type="radio" name="answer" value="b"/><%= c.b %>
-      <input type="radio" name="answer" value="c"/><%= c.c %>
-      <input type="radio" name="answer" value="d"/><%= c.d %>
-      <input type="hidden" name="question_id" value="<%= c.question_id %>">
-      <input type="submit" name="submit" value="Submit!"/>
-    </form>
-    <% end %>
+    <%= erb :'/questions/_question', locals: { round_id: round_id, question: question } %>
   </div>
 </div>

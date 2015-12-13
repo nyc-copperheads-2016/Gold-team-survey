@@ -1,9 +1,9 @@
 get '/surveys/:id/questions/new' do
   survey=Survey.find_by(id:params[:id])
-  if request.xhr?
+  if !request.xhr?
     erb :'surveys/show',locals:{survey:survey}
   else
-    erb :'surveys/_surveys',locals:{survey:survey}
+    erb :'surveys/_surveys',locals:{survey:survey},layout:false
   end
 end
 

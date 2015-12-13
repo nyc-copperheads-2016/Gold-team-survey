@@ -1,0 +1,12 @@
+<div class="stats-container">
+  <%= round.survey.name %>
+  <% round.survey.questions.each_with_index do |q, i| %>
+    <%= q.question %>
+    <p> a was answered: <%= stats[i]["a"] %> times</p>
+    <p> b was answered: <%= stats[i]["b"] %> times</p>
+    <p> c was answered: <%= stats[i]["c"] %> times</p>
+    <p> d was answered: <%= stats[i]["d"] %> times</p>
+  <% end %>
+
+</div>
+
