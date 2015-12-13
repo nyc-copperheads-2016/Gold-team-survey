@@ -18,6 +18,7 @@ end
 
 get '/users/:id' do
   current_user = User.find(session[:user_id])
+  user_decisions = current_user.decisions
   erb :'/users/show', locals: { user: current_user }
 end
 
