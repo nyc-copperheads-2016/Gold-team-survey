@@ -1,6 +1,6 @@
-<h2><%=question.question+"?"%></h2>
+<h2><%= question.question %> ?</h2>
 <% question.choices.each do |c| %>
-  <form id="game-form" action=<%="/rounds/#{round_id}/decisions"%> method='post' />
+  <form id="game-form" action=<%="/rounds/#{round_id}/decisions"%> method='post'>
     <input type="radio" name="answer" value="a"><%= c.a %>
     <input type="radio" name="answer" value="b"/><%= c.b %>
     <input type="radio" name="answer" value="c"/><%= c.c %>
@@ -9,4 +9,3 @@
     <input type="submit" name="submit" value="Submit!"/>
   </form>
 <%end%>
-

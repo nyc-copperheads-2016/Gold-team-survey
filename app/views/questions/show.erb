@@ -1,7 +1,7 @@
 <div class="question-container">
-  <h1><a href="/surveys">Survey Machine</a></h1>
+  <h1>Survey Machine</h1>
   <div class="form-container">
-    <h2><%=question.question+"?"%></h2>
+    <h2><%= question.question %> ?</h2>
     <% question.choices.each do |c| %>
     <form id="game-form" action=<%="/rounds/#{round_id}/decisions"%> method='post' />
       <input type="radio" name="answer" value="a"><%= c.a %>
@@ -11,7 +11,6 @@
       <input type="hidden" name="question_id" value="<%= c.question_id %>">
       <input type="submit" name="submit" value="Submit!"/>
     </form>
-    <%end%>
+    <% end %>
   </div>
 </div>
-

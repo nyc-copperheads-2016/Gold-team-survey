@@ -13,7 +13,6 @@ post '/questions' do
   current_c=current_q.choices.new(params[:choice])
 
   # need to write validations for user unfilled/wacky submissions
-
   if current_q.save && current_c.save
     redirect "/surveys/#{params[:survey_id]}/questions/new"
   else
@@ -24,8 +23,8 @@ end
 get '/rounds/:round_id/questions/:id' do
   question = Question.find(params[:id])
   if request.xhr?
-    erb :'question/show'
+    erb :'questions/_question', layout: false, locals: { round_id: params[:round_id], question: question }
   else
-    erb :'questions/_question', locals: { round_id: params[:round_id], question: question }
+    erb :'questions/show', locals: { round_id: params[:round_id], question: question }
   end
 end
