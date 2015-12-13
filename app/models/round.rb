@@ -5,10 +5,7 @@ class Round < ActiveRecord::Base
   has_many :questions, through: :decisions
 
   def get_unanswered_q
-    q_with_decisions=survey.questions.select{|q| q.decisions.length >0}
-    q_with_decisions.reject{|q| q.decisions.pluck(:round_id).include?(id)}
-
-
+    survey.questions.reject{|q| q.decisions.pluck(:round_id).include?(id)}
   end
 
 end
