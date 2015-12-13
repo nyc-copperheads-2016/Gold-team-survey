@@ -13,5 +13,9 @@ end
 
 get '/rounds/:round_id/questions/:id' do
   question = Question.find(params[:id])
-  erb :'questions/show', locals: { round_id: params[:round_id], question: question }
+  if request.xhr?
+    erb :'question/show'
+  else
+    erb :'questions/_question', layout: true, locals: { round_id: params[:round_id], question: question }
+  end
 end
