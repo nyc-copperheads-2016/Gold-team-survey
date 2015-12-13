@@ -7,6 +7,8 @@
     See: http://necolas.github.com/normalize.css/
   -->
   <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="/css/bootstrap.css">
+  <link rel="stylesheet" href="/css/bootstrap-theme.css">
   <!--
     application.css is where you put your styles
   -->
@@ -16,34 +18,38 @@
 <script type="text/javascript" src="/assets/script/canvasjs.min.js"></script>
   <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="/js/application.js"></script>
+  <script src="/js/bootstrap.js"></script>
 
   <title></title>
 </head>
 <body>
+
+  <header>
   <% if logged_in? %>
-      <span class='welcome'>Welcome <%= current_user.username %></span>
-      <form method='post' action='/sessions'>
-      <input type='hidden' name='_method' value='DELETE' />
-      <input type='submit' value='Logout' />
-      </form>
-      <a href='/surveys'>home</a>
+    <p><span class='welcome'>Welcome, <%= current_user.username %>!</span></p>
+    <form method='post' action='/sessions'>
+    <input type='hidden' name='_method' value='DELETE' />
+    <input type='submit' value='Logout' />
+    </form>
   <% else %>
-      <a href='/users/new'>New User</a>
-      <a href="/sessions/new">Login</a>
+    <p><a href='/users/new'>New User</a> | <a href="/sessions/new">Login</a></p>
   <% end %>
   <% if defined?(errors)%>
-     <ul>
-      <% errors.each do |error| %>
-        <li><%=error%></li>
-     </ul>
-     <%end%>
+    <ul>
+    <% errors.each do |error| %>
+      <li><%=error%></li>
+    </ul>
+    <%end%>
   <%end%>
   <% if !params[:errors].nil?%>
-     <ul>
-        <li><%=params[:errors]%></li>
-     </ul>
+    <ul>
+      <li><%=params[:errors]%></li>
+    </ul>
   <%end%>
+  </header>
+  <main>
   <%= yield %>
+  </main>
 
 </body>
 </html>
