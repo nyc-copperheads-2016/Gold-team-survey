@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.question-container').on('submit', '#game-form', function(e) {
+  $('.form-container').on('submit', '#game-form', function(e) {
     e.preventDefault();
     $.ajax({
       method: 'post',
