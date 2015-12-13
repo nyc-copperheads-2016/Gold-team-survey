@@ -10,9 +10,9 @@ end
 post '/surveys' do
   new_survey = current_user.surveys.new(name: params[:name], creator: current_user)
   if new_survey.save
-    redirect '/questions/new'
+    redirect "/surveys/#{new_survey.id}/questions/new"
   else
-    erb :'surveys/new'
+    erb :'/surveys/new'
   end
 end
 

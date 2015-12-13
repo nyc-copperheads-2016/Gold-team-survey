@@ -1,0 +1,21 @@
+<a href="/surveys">Save and Complete Survey</a>
+
+<form action='/questions' method='post'>
+    <label>Question</label>
+    <input class='input-question-field' type='text' name='question' />
+    <input type='hidden' name='survey_id' value='<%=survey.id%>'>
+    <label>Choice A:</label>
+    <input class='input-choice-a-field' type='text' name='choice[a]' />
+
+    <label>Choice B:</label>
+    <input class='input-choice-b-field' type='text' name='choice[b]' />
+
+    <label>Choice C:</label>
+    <input class='input-choice-c-field' type='text' name='choice[c]' />
+
+    <label>Choice D:</label>
+    <input class='input-choice-d-field' type='text' name='choice[d]' />
+
+    <input type='submit' value='Add another question' />
+</form>
+
