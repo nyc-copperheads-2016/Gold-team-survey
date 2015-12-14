@@ -1,22 +1,21 @@
-<div class="container">
-  <h1>Survey Machine</h1>
+<div id ="new_survey_form">
+    <a id = "new_survey" href='/surveys/new'>Create a new survey</a>
 
-    <div id ="new_survey_form">
-      <a id = "new_survey" href='/surveys/new'>Create a new survey</a>
+      <ul id='my-surveys'>
+        <h2> Surveys you have created: </h2>
+        <% if creator.surveys.length == 0 %>
+          <p>You haven't created any surveys yet!</p>
+        <% else %>
+        <% creator.surveys.each do |survey| %>
+        <li class='surveys'>
+          <%=survey.name%> created on <%= survey.created_at %>
+        </li>
+        <% end %>
+        <% end %>
+      </ul>
+    </div>
 
-        <ul id='my-surveys'>
-          <% if creator.surveys.length == 0 %>
-            <p>You haven't created any surveys yet!</p>
-          <% else %>
-          <% creator.surveys.each do |survey| %>
-          <li class='surveys'>
-            <%=survey.name%> created on <%= survey.created_at %>
-          </li>
-        </ul>
-      </div>
-    <% end %>
-    <% end %>
-    <h2> Surveys you took </h2>
+    <h2> Surveys you have taken: </h2>
     <% creator.surveys.each do |survey| %>
       <%survey.questions.each do |question|%>
         <%question.rounds.each do |round|%>

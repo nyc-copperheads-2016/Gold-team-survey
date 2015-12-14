@@ -1,0 +1,12 @@
+<div class="stats-container">
+  <h2><%= round.survey.name.capitalize %> Survey</h2>
+  <% round.survey.questions.each_with_index do |q, i| %>
+    <h4><%= q.question %> ?</h4>
+    <p><%= q.choices[0].a %> was answered: <%= stats[i]["a"] %> times</p>
+    <p><%= q.choices[0].b %> was answered: <%= stats[i]["b"] %> times</p>
+    <p><%= q.choices[0].c %> was answered: <%= stats[i]["c"] %> times</p>
+    <p><%= q.choices[0].d %> was answered: <%= stats[i]["d"] %> times</p>
+  <% end %>
+
+</div>
+

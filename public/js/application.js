@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  $('.form-container').on('submit', 'form', function(e) {
+  $('.form-container').on('submit', '#game-form', function(e) {
     e.preventDefault();
     $.ajax({
       method: 'post',
@@ -11,6 +11,19 @@ $(document).ready(function() {
       console.log("There was an error: " + response);
     });
   });
+  $('.survey-form-container').on('submit', 'form', function(e) {
+    e.preventDefault();
+    $.ajax({
+      method: 'post',
+      url: e.target.action,
+      data: $(e.target).serialize()
+    }).done(function(response){
+      $('.survey-form-container').html(response);
+    }).fail(function(response){
+      console.log("There was an error: " + response);
+    });
+  });
+
 
 });
 
