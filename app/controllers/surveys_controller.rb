@@ -13,6 +13,7 @@ post '/surveys' do
   if new_survey.save
     redirect "/surveys/#{new_survey.id}/questions/new"
   else
-    erb :'/surveys/new'
+    @errors = new_survey.errors.full_messages
+    erb :'/surveys/new', layout: !request.xhr?
   end
 end

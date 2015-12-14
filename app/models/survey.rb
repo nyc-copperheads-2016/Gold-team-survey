@@ -4,6 +4,8 @@ class Survey < ActiveRecord::Base
   belongs_to :creator, class_name: 'User', foreign_key: 'user_id'
   has_many :users, through: :rounds
 
+  validates :name, length: { minimum: 2 }
+  
   def stats
     d_array = []
     questions.each do |q|
