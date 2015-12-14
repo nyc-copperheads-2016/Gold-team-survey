@@ -1,4 +1,4 @@
-<h2><%= question.question %> ?</h2>
+<h2><%= question.question %>?</h2>
 <% question.choices.each do |c| %>
   <form id="game-form" action=<%="/rounds/#{round_id}/decisions"%> method='post'>
     <div class="answer"><input type="radio" name="answer" value="a"/> <%= c.a %></div>
