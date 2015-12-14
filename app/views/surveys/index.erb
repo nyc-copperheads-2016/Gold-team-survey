@@ -5,7 +5,7 @@
   <div id ="new_survey_form">
 
   <ul id='my-surveys'>
-    <% @new_surveys.each do |survey| %>
+    <% surveys.each do |survey| %>
     <li class='surveys'>
       <h3><%=survey.name%> by <%=survey.creator.username%></h3>
       <form method="post" action="/rounds/new">
