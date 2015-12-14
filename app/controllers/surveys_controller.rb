@@ -16,9 +16,3 @@ post '/surveys' do
     erb :'/surveys/new'
   end
 end
-
-#Do the show after you're done with questions/choices
-# get '/surveys/:id' do
-#   @survey = Survey.find(params[:id])
-#   erb :'surveys/show'
-# end
