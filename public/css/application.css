@@ -129,6 +129,7 @@ header {
 
 body {
     background-image: url("../imgs/term.jpg");
+    background-repeat: repeat-y;
     color: rgb(255, 89, 89);
     width: 100%;
     height: 100%;

@@ -7,13 +7,9 @@ class Survey < ActiveRecord::Base
   def stats
     d_array = []
     questions.each do |q|
-      stats = Hash.new
+      stats = Hash.new(0)
       q.decisions.each do |d|
-        if stats[d.decision]
-          stats[d.decision] += 1
-        else
-          stats[d.decision]=0
-        end
+        stats[d.decision] += 1
       end
       d_array << stats
     end
