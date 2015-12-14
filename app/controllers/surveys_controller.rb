@@ -1,6 +1,7 @@
 get '/surveys' do
-  @new_surveys = Survey.all
-  erb :'surveys/index'
+  surveys = Survey.all
+  current_user = User.find(session[:user_id])
+  erb :'surveys/index', locals: { surveys: surveys, user: current_user }
 end
 
 get '/surveys/new' do
